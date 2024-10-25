@@ -23,7 +23,7 @@ echo "/user set 0 name=admin password=$PASSWORD" >> /mnt/rw/autorun.scr
 echo "/ip dns set server=8.8.8.8,1.1.1.1" >> /mnt/rw/autorun.scr
 # remount all mounted filesystems to read-only mode
 echo u > /proc/sysrq-trigger
-dd if=chr.img bs=1024 of=/dev/nvme0n1
+dd if=chr.img bs=512 of=/dev/nvme0n1
 echo "sync disk"
 # synchronize all mounted filesystems
 echo s > /proc/sysrq-trigger
