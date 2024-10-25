@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #ADDRESS=xxx.xxx.xxx.xxx/24
-ADDRESS=`ip addr show enp0s3 | grep global | cut -d' ' -f 6 | head -n 1`
+ADDRESS=`ip addr show ens5 | grep global | cut -d' ' -f 6 | head -n 1`
 #GATEWAY=xxx.xxx.xxx.1
 GATEWAY=`ip route list | grep default | cut -d' ' -f 3`
 # Raw disk image https://mikrotik.com/download#chr
@@ -23,7 +23,7 @@ echo "/user set 0 name=admin password=$PASSWORD" >> /mnt/rw/autorun.scr
 echo "/ip dns set server=8.8.8.8,1.1.1.1" >> /mnt/rw/autorun.scr
 # remount all mounted filesystems to read-only mode
 echo u > /proc/sysrq-trigger
-dd if=chr.img bs=1024 of=/dev/vda
+dd if=chr.img bs=1024 of=/dev/nvme0n1
 echo "sync disk"
 # synchronize all mounted filesystems
 echo s > /proc/sysrq-trigger
