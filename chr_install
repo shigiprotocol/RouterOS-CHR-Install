@@ -6,7 +6,7 @@ ADDRESS=`ip addr show eth0 | grep global | cut -d' ' -f 6 | head -n 1`
 GATEWAY=`ip route list | grep default | cut -d' ' -f 3`
 # Raw disk image https://mikrotik.com/download#chr
 #VERSIONCHR=7.10.2
-VERSIONCHR=7.14.3
+VERSIONCHR=7.16.1
  
 apt update
 apt install -y pwgen coreutils unzip
